@@ -12,7 +12,7 @@ const register = function register(req, res) {
   console.log(req);
   const { username, password } = req.body;
   const sql = `INSERT INTO users(username, password) values(?,?)`;
-  pool.execute(sql, [username, password], (error, result) => {
+  pool.execute(sql, [username, password], (error, result) => { // REPLACE pool.execute with pool.query
     if (error) {
       console.log(error);
       res.status(500).send("Database retrive error");
